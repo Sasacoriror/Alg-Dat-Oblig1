@@ -1,6 +1,12 @@
 Obligatorisk oppgave 1 i Algoritmer og Datastrukturer
 Denne oppgaven er en innlevering i Algoritmer og Datastrukturer. Oppgaven er levert av følgende studenter:
 
+Jeg har ikke kunnet lage en git commit historik, siden for en slags grunn git hub og intellij funket ikke for meg, jeg har snakket med Øystein og student assistentene på torsdag og Øysteing ba meg lage en privat repo og putte det inn der. 
+
+Lover å ha det med på neste oblig.
+
+
+
 Sacir, S333785, s333785@oslomet.no
 ...
 Arbeidsfordeling
