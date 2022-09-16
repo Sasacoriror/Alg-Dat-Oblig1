@@ -24,7 +24,7 @@ I oppgave 3 skal vi returnere antall ulike verdier i arrayet for en usortert lis
 I oppgave 4  skal vi dele parametertabellen i to deler sortert. Oddetall skal til venstre og partall til høyre. vi bruker modulus 2 til å fordele oddetall og partall.
 Gjør det ved å fordele tallene så sortere dem og bruke to løkker til skrive dem. 
 
-I Oppgave 5 det første beveger alle i arrayet til høyre en plass, så lage en variabel med den siste verdien i arrayet. Da tar jeg i bruk arraycopy for å kopiere arrayet og dyte det en plass. Så hjelpevariabelen vi lagde plasseres som a[0].
+I Oppgave 5 det første beveger alle i arrayet til høyre en plass, så lage en variabel "siste" med den siste verdien i arrayet. Da tar jeg i bruk arraycopy for å kopiere arrayet og dyte det en plass. Så hjelpevariabelen "siste" vi lagde plasseres som a[0].
 
 I oppgave 7
 
