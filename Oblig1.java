@@ -122,9 +122,9 @@ public class Oblig1 {
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
         if (a.length > 1) {
-            char tmp = a[a.length - 1];
+            char siste = a[a.length - 1];
             System.arraycopy(a, 0, a, 1, a.length - 1);
-            a[0] = tmp;
+            a[0] = siste;
         }
     }
 
