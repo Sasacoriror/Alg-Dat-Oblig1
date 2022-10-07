@@ -3,6 +3,7 @@
 import java.lang.UnsupportedOperationException;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
+import static java.lang.Math.abs;
 
 public class Oblig1 {
     private Oblig1() {}
@@ -26,6 +27,17 @@ public class Oblig1 {
 
     public static int ombyttinger(int[] a) {
 
+        // Det vil bli flest ombyttinger når det største tallet er plassert først
+        // Det vil bli færrest ombyttinger hvis arrayet er sortert i stigende rekkefølge
+
+        /*
+        Med forskjellige tall(n) i en tabell er gjennomsnitt log(n)-0.423 av de større er den største av tallene
+        fra kompendiet foran for 10, 100, 1000 tilfeldige ulike tall gir gjennomsnitt 1.9 , 4.2 og 6.5. Det
+        forteller oss at maks > a[i] er true 8, 96 og 993 ganger. Denne metoden gir 7, 95 og 995 ombyttinger
+        for tilsvarende n ulike tall. Men i maks funksjonen fra tidligere er sammenligningen motsatt, dvs
+        antall ganger a[i] > maks. Så tilordningen i metoden maks utføres mindre enn antall ombyttinger
+        utføres i denne metoden. Med det er da maks mer effekriv enn denne metoden.
+         */
         int teller = 0;
 
         for (int i = 0; i < a.length-1; i++){
@@ -79,44 +91,76 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        int partall = 0;
-        int oddetall = 0;
 
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] % 2 == 0){
-                partall++;
-            }else{
-                oddetall++;
+        int lengde = a.length;
+
+        if (lengde < 2) {
+            return;
+        }
+
+        int partallindex;
+        int hoyre = lengde - 1;
+        int venstre = 0;
+
+        for (int i = 0; i < lengde; i++) {
+            while (abs(a[venstre]) % 2 == 1 && venstre < lengde - 1) {
+                venstre++;
+            }
+            while (a[hoyre] % 2 == 0 && hoyre > 0) {
+                hoyre--;
+            }
+            if (venstre < hoyre) {
+                bytt(a,venstre,hoyre);
+
             }
         }
+        partallindex = venstre;
 
-        int[] innPartall = new int[partall];
-        int[] innOdetall = new int[oddetall];
+        if (hoyre == lengde - 1) {
+            partallindex = lengde;
+        }
 
-        int partallIndex = 0;
-        int oddetallIndex = 0;
+        if(0 < partallindex) {
+            quicksort(a, 0, partallindex-1);
+        }
 
-        for (int i = 0; i < a.length; i++){
-            if (a[i] % 2 == 0){
-                innPartall[partallIndex] = a[i];
-                partallIndex++;
-            }else {
-                innOdetall[oddetallIndex] = a[i];
-                oddetallIndex++;
+        if(partallindex < lengde) {
+            quicksort(a, partallindex, lengde - 1);
+        }
+    }
+
+
+    public static void quicksort(int[] a, int fra, int til) {
+        if (fra >= til){
+            return;
+        }
+        int k = partisjon2(a, fra, til, (fra + til) / 2);
+        quicksort(a, fra, k - 1);
+        quicksort(a, k + 1, til);
+    }
+
+
+    public static int partisjon1(int[] a, int v, int h, int skille) {
+        while (true) {
+            while (v <= h && a[v] < skille) v++;
+            while (v <= h && a[h] >= skille) h--;
+            if (v < h) {
+                bytt(a, v++, h--);
             }
+            else return v;
         }
+    }
+    public static int partisjon2(int[] a, int v,int h, int index){
+        bytt(a,index,h);
+        int pos = partisjon1(a,v,h-1,a[h]);
+        bytt(a,pos,h);
+        return pos;
+    }
 
-        Arrays.sort(innPartall);
-        Arrays.sort(innOdetall);
-
-        for (int i = 0; i < innOdetall.length; i++){
-            a[i] = innOdetall[i];
-        }
-
-        for (int i = 0; i < innPartall.length; i++){
-            a[oddetall] = innPartall[i];
-            oddetall++;
-        }
+    public static void bytt(int[] a, int venstre, int hoyre) {
+        int tmp = a[venstre];
+        a[venstre] = a[hoyre];
+        a[hoyre] = tmp;
     }
 
     ///// Oppgave 5 //////////////////////////////////////
