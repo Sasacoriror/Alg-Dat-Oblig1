@@ -27,8 +27,9 @@ for løkke som tar lengden av arrayet og da inne i den tar enda en if setning so
 
 I oppgave 3 skal vi returnere antall ulike verdier i arrayet for en usortert liste vi bruker to for løkker så en if for å sjekke om to tall er like, så bruker vi Math.abs hvor vi tar an tall like minus lengden på arrayet.
 
-I oppgave 4  skal vi dele parametertabellen i to deler sortert. Oddetall skal til venstre og partall til høyre. vi bruker modulus 2 til å fordele oddetall og partall.
-Gjør det ved å fordele tallene så sortere dem og bruke to løkker til skrive dem. 
+I oppgave 4  skal vi dele parametertabellen i to deler sortert. Oddetall skal til venstre og partall til høyre. Oppgaven løses ved bruka av partisjonering og qicksort
+-først sjekker om tabellen er mindre enn 2. Så løkker for på flytte oddetall til venstre og partall til høyre. så if for å sortere oddetall og en if for partall.
+Så quiksort metode med høyre og venstre begrensing tatt fra kompendiet. Så partisjonering metode som bytter verdiene på venstre side av skille om de er mindrepå høyre.  Til slutt en metode som bytter to variabler i arrayet dette er også fra kompendiet.
 
 I Oppgave 5 det første beveger alle i arrayet til høyre en plass, så lage en variabel "siste" med den siste verdien i arrayet. Da tar jeg i bruk arraycopy for å kopiere arrayet og dyte det en plass. Så hjelpevariabelen "siste" vi lagde plasseres som a[0].
 
